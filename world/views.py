@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
+import models
 
 # Create your views here.
 def hello_world(request):
@@ -30,5 +30,12 @@ def signup(request):
 
 
 def todo(request):
-    data = {}
+    if request.method == "POST":
+        text = request.POST.get("txt")
+        models.todo(text=text).save()
+    to = models.todo.objects.all()
+    data = {'data': to}
     return render(request, "todo.html", data)
+
+    # data = {}
+    # return render(request, "todo.html", data)

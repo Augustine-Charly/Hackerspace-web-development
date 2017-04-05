@@ -28,10 +28,10 @@
                <h1 align='center' ><font color='red'>TO DO LIST</font></h1>
                
                <form action="" method="POST" class="form-inline" role="form">
-               
+             {% csrf_token %}
                    <div class="form-group">
                        <label class="sr-only" for="">label</label>
-                       <input type="text" class="form-control" id="" placeholder="Input field">
+                       <input type="text" name="txt" class="form-control" id="" placeholder="Input field">
                    </div>             
                    <button type="submit" class="btn btn-primary">Submit</button>
                </form>
